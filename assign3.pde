@@ -71,10 +71,10 @@ void draw() {
 		image(bg, 0, 0);
 
 		// Sun
-	    stroke(255,255,0);
-	    strokeWeight(5);
-	    fill(253,184,19);
-	    ellipse(590,50,120,120);
+	    	stroke(255,255,0);
+	    	strokeWeight(5);
+	    	fill(253,184,19);
+	    	ellipse(590,50,120,120);
 
 		// Grass
 		fill(124, 204, 25);
@@ -87,16 +87,15 @@ void draw() {
 		// Player
 
 		// Health UI
-
+		image(lifeImg,10,10);
+		image(lifeImg,80,10);
+		image(lifeImg,150,10);
 		break;
 
 		case GAME_OVER: // Gameover Screen
 		image(gameover, 0, 0);
 		
-		if(START_BUTTON_X + START_BUTTON_W > mouseX
-	    && START_BUTTON_X < mouseX
-	    && START_BUTTON_Y + START_BUTTON_H > mouseY
-	    && START_BUTTON_Y < mouseY) {
+		if(START_BUTTON_X + START_BUTTON_W > mouseX && START_BUTTON_X < mouseX && START_BUTTON_Y + START_BUTTON_H > mouseY && START_BUTTON_Y < mouseY) {
 
 			image(restartHovered, START_BUTTON_X, START_BUTTON_Y);
 			if(mousePressed){
@@ -104,14 +103,14 @@ void draw() {
 				mousePressed = false;
 				// Remember to initialize the game here!
 			}
-		}else{
+			}else{
 
-			image(restartNormal, START_BUTTON_X, START_BUTTON_Y);
+				image(restartNormal, START_BUTTON_X, START_BUTTON_Y);
 
-		}
-		break;
+			}
+			break;
 		
-	}
+		}
 
     // DO NOT REMOVE OR EDIT THE FOLLOWING 3 LINES
     if (debugMode) {
