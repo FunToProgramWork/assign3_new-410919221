@@ -43,31 +43,54 @@ boolean debugMode = false;
 
 void setup() {
 	size(640, 480, P2D);
-	// Enter your setup code here (please put loadImage() here or your game will lag like crazy)
-	bg = loadImage("img/bg.jpg");
-	title = loadImage("img/title.jpg");
-	gameover = loadImage("img/gameover.jpg");
-	startNormal = loadImage("img/startNormal.png");
-	startHovered = loadImage("img/startHovered.png");
-	restartNormal = loadImage("img/restartNormal.png");
-	restartHovered = loadImage("img/restartHovered.png");
-	
-	soil8x24 = loadImage("img/soil8x24.png");
-	soil0 = loadImage("img/soil0.png");
-	soil1 = loadImage("img/soil1.png");
-	soil2 = loadImage("img/soil2.png");
-	soil3 = loadImage("img/soil3.png");
-	soil4 = loadImage("img/soil4.png");
-	soil5 = loadImage("img/soil5.png");
-	stone1 = loadImage("img/stone1.png");
-	stone2 = loadImage("img/stone2.png");
+  frameRate (60);
 
-  	soldierImg = loadImage("img/soldier.png");
-  	cabbageImg = loadImage("img/cabbage.png");
-  	groundhogImg = loadImage("img/groundhogIdle.png");
-  	groundhogDownImg = loadImage("img/groundhogDown.png");
-  	groundhogLeftImg = loadImage("img/groundhogLeft.png");
-  	groundhogRightImg = loadImage("img/groundhogRight.png");
+  //load the pictures
+  skyImg = loadImage("img/bg.jpg");
+  lifeImg = loadImage("img/life.png");
+  //soil area
+  soil0 = loadImage("img/soil0.png");
+  soil1 = loadImage("img/soil1.png");
+  soil2 = loadImage("img/soil2.png");
+  soil3 = loadImage("img/soil3.png");
+  soil4 = loadImage("img/soil4.png");
+  soil5 = loadImage("img/soil5.png");
+  stone1 = loadImage("img/stone1.png");
+  stone2 = loadImage("img/stone2.png");
+
+  soldierImg = loadImage("img/soldier.png");
+  cabbageImg = loadImage("img/cabbage.png");
+  groundhogImg = loadImage("img/groundhogIdle.png");
+  groundhogDownImg = loadImage("img/groundhogDown.png");
+  groundhogLeftImg = loadImage("img/groundhogLeft.png");
+  groundhogRightImg = loadImage("img/groundhogRight.png");
+  titleImg = loadImage("img/title.jpg");
+  startNormalImg = loadImage("img/startNormal.png");
+  startHoveredImg = loadImage("img/startHovered.png");
+  restartNormalImg = loadImage("img/restartNormal.png");
+  restartHoveredImg = loadImage("img/restartHovered.png");
+  gameoverImg = loadImage("img/gameover.jpg");
+
+  //lifeCount
+  playerHealth = 2;
+
+  //soldier
+  soldierX = -160;
+  soldierY = 80*floor(random(2, 6));
+  soldierSize = 80;
+  soldierSpeed = 3;//soldier
+
+  //groundhog
+  groundhogX=320.0;
+  groundhogY=80.0;
+  groundhogSize=80;
+  t=0.0;//groundhog change position
+  hogState = HOG_IDLE;
+
+  //cabbage
+  cabbageX = 80*floor(random(0, 8));
+  cabbageY = 80*floor(random(2, 6));
+  cabbageSize=80;
 	
 }
 
@@ -89,10 +112,15 @@ void draw() {
 
 		case GAME_START: // Start Screen
 		image(title, 0, 0);
-
+		hogState=HOG_IDLE;
+    		t=0.0;
+    		downPressed=false;
+    		leftPressed=false;
+    		rightPressed=false;
+		
 		if(START_BUTTON_X + START_BUTTON_W > mouseX && START_BUTTON_X < mouseX && START_BUTTON_Y + START_BUTTON_H > mouseY && START_BUTTON_Y < mouseY) {
 
-			image(startHovered, START_BUTTON_X, START_BUTTON_Y);
+			image(startHoveredImg, BUTTON_LEFT, BUTTON_TOP);
 			if(mousePressed){
 				gameState = GAME_RUN;
 				mousePressed = false;
@@ -106,6 +134,15 @@ void draw() {
 		break;
 
 		case GAME_RUN: // In-Game
+		
+		//background
+		//sky
+    		image(skyImg, 0, 0);
+		//sun
+    		fill(253, 184, 19);
+    		strokeWeight(5);
+    		stroke(255, 255, 0);
+    		ellipse(590, 50, 120, 120);
 
 		if(moveY > -1600){
       			moveY=soilSize-groundhogY;//a changing number(since the groundhogY is changing)
@@ -132,24 +169,24 @@ void draw() {
           	for (int n=1760; n<1760+soilSize*4; n+=soilSize) {
             		image(soil5, i, n);
           	}
-        }
+        	}
     
-        //stone 1-8
-        pushMatrix();
-        translate(0, 160);
-        y=0;
-        x = soilSize;
-        y=0;
-        for (int i=0; i<8; i++) {
-          x = i*soilSize;
-          image(stone1, x, y);
-          y += soilSize;
-        }
-        popMatrix();
+        	//stone 1-8
+        	pushMatrix();
+        	translate(0, 160);
+       		y=0;
+        	x = soilSize;
+        	y=0;
+        	for (int i=0; i<8; i++) {
+          	x = i*soilSize;
+          	image(stone1, x, y);
+          	y += soilSize;
+        	}
+       	 	popMatrix();
     
-        //stone 9-16
-        pushMatrix();
-        translate(0, 160+soilSize*8
+        	//stone 9-16
+        	pushMatrix();
+        	translate(0, 160+soilSize*8
 
 		case GAME_OVER: // Gameover Screen
 		image(gameover, 0, 0);
