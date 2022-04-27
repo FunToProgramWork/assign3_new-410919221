@@ -178,7 +178,3 @@ void draw() {
           y += soilSize;
         }
         popMatrix();
-    
-        //stone 9-16
-        pushMatrix();
-        translate(0, 160+soilSize*8
