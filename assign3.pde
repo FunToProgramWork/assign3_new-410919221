@@ -188,29 +188,4 @@ void draw() {
         	pushMatrix();
         	translate(0, 160+soilSize*8
 
-		case GAME_OVER: // Gameover Screen
-		image(gameover, 0, 0);
 		
-		if(START_BUTTON_X + START_BUTTON_W > mouseX && START_BUTTON_X < mouseX && START_BUTTON_Y + START_BUTTON_H > mouseY && START_BUTTON_Y < mouseY) {
-
-			image(restartHovered, START_BUTTON_X, START_BUTTON_Y);
-			if(mousePressed){
-				gameState = GAME_RUN;
-				mousePressed = false;
-				// Remember to initialize the game here!
-				
-			}
-			}else{
-
-				image(restartNormal, START_BUTTON_X, START_BUTTON_Y);
-
-			}
-			break;
-		
-		}
-
-    // DO NOT REMOVE OR EDIT THE FOLLOWING 3 LINES
-    if (debugMode) {
-        popMatrix();
-    }
-}
