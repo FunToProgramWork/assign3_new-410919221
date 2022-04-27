@@ -120,7 +120,8 @@ void draw() {
 
 void keyPressed(){
 	// Add your moving input code here
-
+	y=y+1;
+	if ( y > 480)	y = -80;
 	// DO NOT REMOVE OR EDIT THE FOLLOWING SWITCH/CASES
     switch(key){
       case 'w':
