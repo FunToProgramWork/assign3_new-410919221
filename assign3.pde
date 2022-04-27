@@ -41,7 +41,7 @@ boolean debugMode = false;
 
 void setup() {
 	size(640, 480, P2D);
-  frameRate (60);
+  	frameRate (60);
 
   //load the pictures
   skyImg = loadImage("img/bg.jpg");
@@ -93,17 +93,7 @@ void setup() {
 }
 
 void draw() {
-    /* ------ Debug Function ------ 
-
-      Please DO NOT edit the code here.
-      It's for reviewing other requirements when you fail to complete the camera moving requirement.
-
-    */
-    if (debugMode) {
-      pushMatrix();
-      translate(0, cameraOffsetY);
-    }
-    /* ------ End of Debug Function ------ */
+    
 
     
 	switch (gameState) {
@@ -121,16 +111,17 @@ void draw() {
 			image(startHoveredImg, BUTTON_LEFT, BUTTON_TOP);
 			if(mousePressed){
 				gameState = GAME_RUN;
-				mousePressed = false;
 			}
 
 		}else{
 
-			image(startNormal, START_BUTTON_X, START_BUTTON_Y);
+			image(startNormalImg, BUTTON_LEFT, BUTTON_TOP);
 
 		}
 		break;
 
+		
+		
 		case GAME_RUN: // In-Game
 		
 		//background
@@ -141,7 +132,18 @@ void draw() {
     		strokeWeight(5);
     		stroke(255, 255, 0);
     		ellipse(590, 50, 120, 120);
+		/* ------ Debug Function ------ 
 
+		Please DO NOT edit the code here.
+		It's for reviewing other requirements when you fail to complete the camera moving requirement.
+
+		*/
+		if (debugMode) {
+			pushMatrix();
+		      	translate(0, cameraOffsetY);
+		}
+		/* ------ End of Debug Function ------ */
+		
 		if(moveY > -1600){
       			moveY=soilSize-groundhogY;//a changing number(since the groundhogY is changing)
     		}
