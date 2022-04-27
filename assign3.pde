@@ -84,56 +84,31 @@ void draw() {
 
 		case GAME_RUN: // In-Game
 
-		// Background
-		image(bg, 0, 0);
-
-		// Sun
-	    	stroke(255,255,0);
-	    	strokeWeight(5);
-	    	fill(253,184,19);
-	    	ellipse(590,50,120,120);
-
-		// Grass
-		fill(124, 204, 25);
-		noStroke();
-		rect(0, 160 - GRASS_HEIGHT, width, GRASS_HEIGHT);
-
-		// Soil - REPLACE THIS PART WITH YOUR LOOP CODE!
-		image(soil8x24, 0, 160);
-
-		// Player
-
-		// Health UI
-		image(lifeImg,10,10);
-		image(lifeImg,80,10);
-		image(lifeImg,150,10);
-		break;
-		
 		if(moveY > -1600){
-      moveY=soilSize-groundhogY;//a changing number(since the groundhogY is changing)
-    }
-    pushMatrix();
-    translate(0,moveY);
-        //soil
-        for (int i=0; i<width; i+=soilSize) {
-          for (int n=160; n<160+soilSize*4; n+=soilSize) {
-            image(soil0, i, n);
-          }
-          for (int n=480; n<480+soilSize*4; n+=soilSize) {
-            image(soil1, i, n);
-          }
-          for (int n=800; n<800+soilSize*4; n+=soilSize) {
-            image(soil2, i, n);
-          }
-          for (int n=1120; n<1120+soilSize*4; n+=soilSize) {
-            image(soil3, i, n);
-          }
-          for (int n=1440; n<1440+soilSize*4; n+=soilSize) {
-            image(soil4, i, n);
-          }
-          for (int n=1760; n<1760+soilSize*4; n+=soilSize) {
-            image(soil5, i, n);
-          }
+      			moveY=soilSize-groundhogY;//a changing number(since the groundhogY is changing)
+    		}
+    		pushMatrix();
+    			translate(0,moveY);
+        	//soil
+        	for (int i=0; i<width; i+=soilSize) {
+          		for (int n=160; n<160+soilSize*4; n+=soilSize) {
+            			image(soil0, i, n);
+          	}
+          	for (int n=480; n<480+soilSize*4; n+=soilSize) {
+            		image(soil1, i, n);
+         	 }
+         	 for (int n=800; n<800+soilSize*4; n+=soilSize) {
+           		 image(soil2, i, n);
+          	}
+          	for (int n=1120; n<1120+soilSize*4; n+=soilSize) {
+           		 image(soil3, i, n);
+          	}
+          	for (int n=1440; n<1440+soilSize*4; n+=soilSize) {
+           		 image(soil4, i, n);
+          	}
+          	for (int n=1760; n<1760+soilSize*4; n+=soilSize) {
+            		image(soil5, i, n);
+          	}
         }
     
         //stone 1-8
