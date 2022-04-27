@@ -1,4 +1,11 @@
-final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
+PImage skyImg, lifeImg, soldierImg, cabbageImg;
+PImage soil0, soil1, soil2, soil3, soil4, soil5, stone1, stone2;
+PImage groundhogImg, groundhogDownImg, groundhogLeftImg, groundhogRightImg;
+PImage titleImg, gameoverImg, startNormalImg, startHoveredImg, restartNormalImg, restartHoveredImg;
+
+final int GAME_START = 0;
+final int GAME_RUN = 1;
+final int GAME_OVER = 2;
 int gameState = GAME_START;
 
 final int BUTTON_TOP = 360;
@@ -6,24 +13,19 @@ final int BUTTON_BOTTOM = 420;
 final int BUTTON_LEFT = 248;
 final int BUTTON_RIGHT = 392;
 
-PImage skyImg, lifeImg, soldierImg, cabbageImg;
-PImage soil0, soil1, soil2, soil3, soil4, soil5, stone1, stone2;
-PImage groundhogImg, groundhogDownImg, groundhogLeftImg, groundhogRightImg;
-PImage titleImg, gameoverImg, startNormalImg, startHoveredImg, restartNormalImg, restartHoveredImg;
-
-int x=0, y=0;//stone's position
-int soldierX, soldierY;//soldier's position
+int x=0, y=0;
+int soldierX, soldierY;
 int soldierSize;
 int soldierSpeed;
-float groundhogX;//groundhog's position
+float groundhogX;
 float groundhogY;
 int groundhogSize;
-final int soilSize = 80;//to remove the offset
-int cabbageX;//cabbage's position
+final int soilSize = 80;
+int cabbageX;
 int cabbageY;
 int cabbageSize;
 
-int hogState;//groundhog change position
+int hogState;
 boolean downPressed = false;
 boolean leftPressed = false;
 boolean rightPressed = false;
