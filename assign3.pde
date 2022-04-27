@@ -1,5 +1,5 @@
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
-int gameState = 0;
+int gameState = GAME_START;
 
 final int GRASS_HEIGHT = 15;
 final int START_BUTTON_W = 144;
@@ -12,6 +12,29 @@ PImage soil0, soil1, soil2, soil3, soil4, soil5, stone1, stone2;
 PImage groundhogImg, groundhogDownImg, groundhogLeftImg, groundhogRightImg;
 PImage title, gameover, startNormal, startHovered, restartNormal, restartHovered;
 PImage bg, soil8x24;
+
+int x=0, y=0;//stone's position
+int soldierX, soldierY;//soldier's position
+int soldierSize;
+int soldierSpeed;
+float groundhogX;//groundhog's position
+float groundhogY;
+int groundhogSize;
+final int soilSize = 80;//to remove the offset
+int cabbageX;//cabbage's position
+int cabbageY;
+int cabbageSize;
+
+int hogState;//groundhog change position
+boolean downPressed = false;
+boolean leftPressed = false;
+boolean rightPressed = false;
+final int HOG_IDLE=1;
+final int HOG_DOWN=2;
+final int HOG_LEFT=3;
+final int HOG_RIGHT=4;
+float t;//groundhog move timer
+float moveY=0;//roll the soil
 
 // For debug function; DO NOT edit or remove this!
 int playerHealth = 0;
