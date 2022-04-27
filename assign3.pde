@@ -1,17 +1,15 @@
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = GAME_START;
 
-final int GRASS_HEIGHT = 15;
-final int START_BUTTON_W = 144;
-final int START_BUTTON_H = 60;
-final int START_BUTTON_X = 248;
-final int START_BUTTON_Y = 360;
+final int BUTTON_TOP = 360;
+final int BUTTON_BOTTOM = 420;
+final int BUTTON_LEFT = 248;
+final int BUTTON_RIGHT = 392;
 
 PImage skyImg, lifeImg, soldierImg, cabbageImg;
 PImage soil0, soil1, soil2, soil3, soil4, soil5, stone1, stone2;
 PImage groundhogImg, groundhogDownImg, groundhogLeftImg, groundhogRightImg;
-PImage title, gameover, startNormal, startHovered, restartNormal, restartHovered;
-PImage bg, soil8x24;
+PImage titleImg, gameoverImg, startNormalImg, startHoveredImg, restartNormalImg, restartHoveredImg;
 
 int x=0, y=0;//stone's position
 int soldierX, soldierY;//soldier's position
